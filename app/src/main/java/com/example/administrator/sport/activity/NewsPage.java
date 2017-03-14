@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.administrator.sport.R;
 import com.example.administrator.sport.bean.ItemBean;
+import com.example.administrator.sport.bean.People;
 import com.example.administrator.sport.bean.User;
 import com.example.administrator.sport.fragment.FragmentItem;
 import com.umeng.socialize.ShareAction;
@@ -21,6 +22,9 @@ import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMWeb;
+
+import static com.example.administrator.sport.R.anim.left_out;
+import static com.example.administrator.sport.R.anim.right_in;
 
 /**
  * Created by Administrator on 2017/3/2.
@@ -86,7 +90,7 @@ public class NewsPage extends BaseActivity {
         });
         imageView1= (ImageView) findViewById(R.id.iv15);
          imageView2= (ImageView) findViewById(R.id.iv16);
-         imageView3= (ImageView) findViewById(R.id.iv17);
+         imageView3= (ImageView) findViewById(R.id.iv25);
 
         frameLayout= (FrameLayout) findViewById(R.id.framLayout666);
 //         frameLayout.setOnClickListener(new View.OnClickListener() {
@@ -102,22 +106,17 @@ public class NewsPage extends BaseActivity {
             @Override
             public void onClick(View v) {
                 if (db_c.show() == null) {
-                    db_c.add(img1, img2, img3, url, author, date, title);
+                    db_c.add(img1, img2, img3, title, author, date, url);
                     Toast.makeText(NewsPage.this, "收藏成功！", Toast.LENGTH_SHORT).show();
                 } else {
-                    for (ItemBean.ResultBean.DataBean u : db_c.show()) {
+                    for (People u : db_c.show()) {
                         if (u.getUrl().equals(url) && u.getTitle().equals(title)) {
                             Toast.makeText(NewsPage.this, "该新闻已收藏！", Toast.LENGTH_SHORT).show();
                             return;
                         }
-//                else {
-
-//
                     }
-                    db_c.add(img1, img2, img3, url, author, date, title);
-//
-//                    }
-//                    db_c.add(img1, img2, img3, title, author, date, url);
+                    db_c.add(img1, img2, img3, title, author, date, url);
+
                     Toast.makeText(NewsPage.this, "收藏成功！", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -169,6 +168,7 @@ public class NewsPage extends BaseActivity {
                 imageView1.setVisibility(View.INVISIBLE);
                 imageView5.setVisibility(View.VISIBLE);
                 finish();
+                overridePendingTransition(left_out,right_in);
 
             }
         });

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.sport.Adapter.RecylerViewAdapter;
+import com.example.administrator.sport.activity.Add;
 import com.example.administrator.sport.activity.NewsPage;
 import com.example.administrator.sport.bean.ItemBean;
 import com.example.administrator.sport.R;
@@ -83,16 +84,20 @@ public class FragmentItem extends Fragment {
             @Override
             public void onItemClick(View view, int position, String imgurl1, String imgur2, String imgur3, String title, String author, String date, String url) {
                 Intent intent = new Intent(getContext(), NewsPage.class);
-                intent.putExtra("imgurl1",list.get(position).getThumbnail_pic_s());
-                intent.putExtra("imgur2",list.get(position).getThumbnail_pic_s02());
-                intent.putExtra("imgur3",list.get(position).getThumbnail_pic_s03());
-                intent.putExtra("title",list.get(position).getTitle());
-                intent.putExtra("author",list.get(position).getAuthor_name());
-                intent.putExtra("date",list.get(position).getDate());
-                intent.putExtra("url",list.get(position).getUrl());
+                intent.putExtra("imgurl1",imgurl1);
+                intent.putExtra("imgur2",imgur2);
+                intent.putExtra("imgur3",imgur3);
+                intent.putExtra("title",title);
+                intent.putExtra("author",author);
+                intent.putExtra("date",date);
+                intent.putExtra("url",url);
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.left_in,R.anim.left_out);
+
             }
         });
+
+
 
         return view;
     }

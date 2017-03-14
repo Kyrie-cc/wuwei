@@ -112,7 +112,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
             <ImageView
-                android:src="@drawable/pinglun1"
+                android:id="@+id/iv25"
+                android:src="@drawable/attention_6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>

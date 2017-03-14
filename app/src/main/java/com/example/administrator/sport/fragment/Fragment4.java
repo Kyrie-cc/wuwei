@@ -1,17 +1,20 @@
 package com.example.administrator.sport.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.administrator.sport.Adapter.ListViewAdapter;
 import com.example.administrator.sport.R;
+import com.example.administrator.sport.activity.ShouCang;
 import com.example.administrator.sport.bean.User;
 
 import java.util.ArrayList;
@@ -32,8 +35,21 @@ public class Fragment4 extends Fragment {
         listView= (ListView) view.findViewById(R.id.listView);
         listViewAdapter=new ListViewAdapter(getContext(),getList());
         listView.setAdapter(listViewAdapter);
+        intent();
         return view;
 
+    }
+    public void intent(){
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+       if(position==2){
+           Intent intent =new Intent(getContext(), ShouCang.class);
+                startActivity(intent);
+           getActivity().overridePendingTransition(R.anim.left_in,R.anim.left_out);
+       }
+            }
+        });
     }
     public ArrayList<User> getList(){
         list=new ArrayList<>();

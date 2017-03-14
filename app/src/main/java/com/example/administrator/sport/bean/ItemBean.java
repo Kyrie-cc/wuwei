@@ -106,7 +106,15 @@ public class ItemBean {
             private String thumbnail_pic_s;
             private String thumbnail_pic_s02;
             private String thumbnail_pic_s03;
+            private boolean isCheck;
 
+            public boolean isCheck() {
+                return isCheck;
+            }
+
+            public void setCheck(boolean check) {
+                isCheck = check;
+            }
 
             public DataBean(String thumbnail_pic_s03, String thumbnail_pic_s02, String thumbnail_pic_s, String url, String author_name, String date, String title) {
                 this.thumbnail_pic_s03 = thumbnail_pic_s03;

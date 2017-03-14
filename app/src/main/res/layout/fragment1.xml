@@ -35,6 +35,7 @@
 
    </android.support.design.widget.TabLayout>
  <LinearLayout
+     android:id="@+id/layout8"
      android:layout_width="0dp"
      android:layout_height="match_parent"
      android:layout_weight="1"

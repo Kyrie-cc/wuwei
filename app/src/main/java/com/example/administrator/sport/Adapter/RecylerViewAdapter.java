@@ -29,6 +29,8 @@ public class RecylerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         this.context=context;
     }
 
+    // TODO: 2017/3/14  
+
     //添加数据
     public void addList(List<ResultBean.DataBean> list) {
         Log.e("mm",list.size()+"");

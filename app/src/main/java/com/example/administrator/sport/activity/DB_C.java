@@ -3,8 +3,10 @@ package com.example.administrator.sport.activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.administrator.sport.bean.ItemBean;
+import com.example.administrator.sport.bean.People;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +16,7 @@ import java.util.List;
  */
 
 public class DB_C {
+    private  List<People> list;
     private SQLiteDatabase db;
     public DB_C(Context context) {
         db=new DB_M(context).getWritableDatabase();
@@ -24,20 +27,38 @@ public class DB_C {
                 "','"+imgur2+"','"+imgur3+"','"+author+"','"+title+"','"+date+"')";
         db.execSQL(sql);
     }
-    public void delete(String url,String title){
+    public void delete(List<People> list){
 //        String sql="delete from "+DB_M.table_name+" where url='"+url+"','"+imgurl+
 //                "','"+content+"','"+name+"'";
-        String sql="delete from "+DB_M.table_name+" where url='"+url+"' and title='"+title+"'";
-        db.execSQL(sql);
+
+        for (People u:list) {
+            Log.e("msg",u.isCheck()+"");
+            if(u.isCheck()){
+//                String sql="delete from " + DB_M.table_name + " where url = '"+u.getUrl()+"'";
+//                Log.e("msg1",sql);
+//                db.execSQL(sql);
+                String sql="delete from " + DB_M.table_name + " where title = '"+u.getTitle()+"'";
+
+                Log.e("mm","6666"+sql);
+                db.execSQL(sql);
+            }
+
+        }
+        this.list=list;
+
     }
-    public List<ItemBean.ResultBean.DataBean> show(){
-        ArrayList<ItemBean.ResultBean.DataBean> list = new ArrayList<>();
-        ArrayList<ItemBean.ResultBean.DataBean> newList = new ArrayList<>();
+    public  List<People> getList(){
+
+        return list;
+    }
+    public List<People> show(){
+        ArrayList<People> list = new ArrayList<>();
+        ArrayList<People> newList = new ArrayList<>();
         String sql=" select * from "+ DB_M.table_name ;
         Cursor cursor = db.rawQuery(sql,null);
         if(!cursor.isAfterLast()){
             while(cursor.moveToNext()){
-                list.add(new ItemBean.ResultBean.DataBean(cursor.getString(cursor.getColumnIndex("imgurl1")),
+                list.add(new People(cursor.getString(cursor.getColumnIndex("imgurl1")),
                         cursor.getString(cursor.getColumnIndex("imgur2")),
                         cursor.getString(cursor.getColumnIndex("imgur3")),
                         cursor.getString(cursor.getColumnIndex("title")),

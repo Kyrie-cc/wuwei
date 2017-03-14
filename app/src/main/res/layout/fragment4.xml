@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="6"
-        android:background="#7a99b7"></LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,16 +15,27 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.3"></LinearLayout>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
         </LinearLayout>
+
         <LinearLayout
+
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"></LinearLayout>
+            android:layout_weight="1"
+            android:gravity="center">
+            <TextView
+                android:text="Mr.Wu"
+                android:textColor="#FFF"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -40,6 +47,50 @@
             android:layout_height="match_parent"
             android:layout_weight="0.3"></LinearLayout>
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:background="#FFF"
+        >
+
+        <ImageView
+            android:src="@drawable/tx"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/imageView" />
+
+        <TextView
+            android:text="Heartbeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:id="@+id/textView2" />
+
+        <TextView
+            android:text="设置个人信息>"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:layout_below="@+id/textView2"
+            android:layout_alignLeft="@+id/imageView"
+            android:layout_alignStart="@+id/imageView" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shezhi"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/imageView3" />
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

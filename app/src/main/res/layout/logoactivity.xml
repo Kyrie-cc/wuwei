@@ -4,8 +4,10 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
- <ImageView
-     android:src="@drawable/ll"
-     android:layout_width="300dp"
-     android:layout_height="wrap_content" />
+    <ImageView
+        android:src="@drawable/logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#DDD"
+        android:id="@+id/imageView2" />
 </LinearLayout>
